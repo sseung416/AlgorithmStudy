@@ -1,4 +1,4 @@
-package sseung.tree;
+package codingtest;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package sseung;
+package codingtest;
 
 import java.util.HashMap;
 

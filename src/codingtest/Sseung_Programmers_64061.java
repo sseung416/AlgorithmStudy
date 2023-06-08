@@ -1,4 +1,4 @@
-package sseung;
+package codingtest;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;

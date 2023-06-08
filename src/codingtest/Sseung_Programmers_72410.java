@@ -1,4 +1,4 @@
-package sseung;
+package codingtest;
 
 // https://school.programmers.co.kr/learn/courses/30/lessons/72410
 public class Sseung_Programmers_72410 {
