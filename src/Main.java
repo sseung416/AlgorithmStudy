@@ -7,10 +7,11 @@ public class Main {
 //        SimpleHash.run();
 //        SimpleHash.runWithCrash();
 
-//         Sseung_Baekjoon_1991.run();
-//         Sseung_Programmers_64061.run();
-//         Sseung_Programmers_72410.run();
-//         Sseung_Programmers_11866.run();
-        Programmers_42577.run();
+//        Sseung_Baekjoon_1991.run();
+//        Sseung_Programmers_64061.run();
+//        Sseung_Programmers_72410.run();
+//        Sseung_Programmers_11866.run();
+//        Programmers_42577.run();
+        Programmers_12939.run();
     }
 }
