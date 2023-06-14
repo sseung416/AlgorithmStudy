@@ -1,75 +1,85 @@
-# 해시테이블
+# HashTable
 
----
+[//]: # (해시 함수 종류에 대하 더 자세한 설명과 이해, 시간 복잡도에 대한 내용 추가, 해시 충돌 알고리즘에 더 자세히 조사)
+[//]: # (추가적으로 자바 해시맵, 해시셋과 그 구현체에 대해 소스 보기)
+
 ## 개념
-#### [ Key, Value ]로 데이터를 저장하는 자료구조
-    - Key는 중복 불가능, Value는 가능
-    - 빠른 데이터 조회 가능
-        * 내부적으로 배열(버킷)을 사용해 데이터를 저장하기 때문
-        * 각각의 Key 값에 해시 함수를 적용해 배열의 고유 index 생성, 이를 활용해 데이터 저장 및 조회
-        * 버킷/슬롯: 실제 값이 저장되는 장소
-    - 해시 테이블의 평균 시간 복잡도: O(1)
 
-![Hashtable](img-hashtable1.png)
+- [Key-Value] 형식으로 데이터를 저장하는 자료구조
+- 빠르게 데이터 조회 및 추가, 삭제가 가능함
+  - 데이터가 저장되는 위치를 index로 정하기 때문 -> 데이터를 찾기 위해 반복문을 돌리는 수고가 필요 없다!
+  - 각 키 값에 대해 해시 함수를 적용해 데이터의 고유의 아이디를 생성하고, 이 아이디 값을 index로 사용함
+- 평균 시간 복잡도: O(1)
 
-### Hash Function (해시 함수)의 종류
-    - Division Method: 나눗셈 이용, (주소) = (입력 값) % (테이블 크기)
-        * 테이블 크기를 소수로 정하고 2의 제곱수와 먼 값을 사용해야 효과가 좋음
-    - Digit Folding: 각 Key의 문자열을 ASCII 코드로 변환 후 값을 합한 데이터를 테이블 내 주소로 사용
-    - Multiplication Method: 숫자인 Key값 K, 0~1 사이 실수인 A, 2의 제곱수인 m을 사용해 특정 계산을 사용
-        * h(k) = (kAmod1) * m
-    - Univeral Hashing: 다수의 해시 함수를 만들어 집합 H에 넣고, 무작위로 해시 함수 선택해 해시 값 생성 
+### 용어 알기
 
-[//]: # (나머지 개념 정리)
+- 해시 함수 (Hash Function): 임의의 데이터를 고정된 길이 값을 반환하는 함수
+  - 해시, 해시 값, 해시 주소: 해싱 함수가 반환하는 고정된 길이
+- 해시 테이블 (Hash Table): 키 값의 연산으로 직접 접근이 가능한 자료구조
+  - 버킷 (bucket): 데이터가 실제로 저장되는 장소, 주로 내부에 배열로 선언됨
+  - 슬롯 (Slot): 버킷 내부의 한 개의 데이터를 저장할 수 있는 공간
 
-<br/>
+![Hashtable](picture/img-hashtable1.png)
 
-## [JAVA] HashMap
-HashMap은 JAVA의 Map 인터페이스를 구현한 형태
-### 사용법
-```java
-// 삽입
-public V get(Object key)
+### 해시 함수의 종류
 
-// 값 조회
-public V get(Object key)
-public V getOrDefault(Object key, V defaultValue)
+- Division Method: 나눗셈 이용, (주소) = (입력 값) % (테이블 크기)
+  - 테이블 크기를 소수로 정하고 2의 제곱수와 먼 값을 사용해야 효과가 좋음
+- Digit Folding: 각 Key의 문자열을 ASCII 코드로 변환 후 값을 합한 데이터를 테이블 내 주소로 사용
+- Multiplication Method: 숫자인 Key값 K, 0~1 사이 실수인 A, 2의 제곱수인 m을 사용해 특정 계산을 사용 
+  - h(k) = (kAmod1) * m
+- Univeral Hashing: 다수의 해시 함수를 만들어 집합 H에 넣고, 무작위로 해시 함수 선택해 해시 값 생성
 
-// 해당 Key에 해당되는 값이 있는지 조사하여 결과 값 반환
-public boolean containsKey(Object key)
+### 장단점과 용도
 
-// 값 삭제 후 반환
-public V remove(Object key)
+#### 장점
 
-// 맵의 모든 Key를 Set으로 반환
-public Set<K> keySet()
-```
+- 데이터 검색, 저장, 읽기 모두 빠름
+- 중복 검사가 쉬움
 
+#### 단점
 
+- 저장 공간이 많이 필요함
+- **키에 해당하는 주소가 동일한 경우, 충돌을 해결하기 위한 별도 자료구조가 필요**
 
-### HashTable vs HashMap
-```java
-// HashTable put
-public synchronized V put(K key, V value)
+#### 용도
 
-// HashMap put
-public V put(K key, V value)
-```
+- 검색, 저장, 삭제, 읽기가 빈번한 경우
+- 캐시 구현 시: 중복 확인이 쉽기 때문
 
-|             | HashTable | HashMap |
-|-------------|-----------|---------|
-| Thread-safe | O         | X       |
-| Nullable    | X         | O       |
-| Enumeration | O         | X       |
-| 보조 해시 함수    | X         | O       |
-| 지속적인 개선     | X         | O       |
-- 가장 큰 것은 동기화의 여부
-- 보조 해시 함수를 사용하면 해시 충돌(Hash collision)의 발생 가능성을 감소
+## 해시 충돌 알고리즘
+
+### Chaining 기법
+
+- 충돌이 발생 시, `LinkedList`를 이용해서 새로 생성한 데이터를 뒤에 추가로 연결시켜서 저장하는 기법
+- **개방 해슁**, **Open Hashing** 기법 중 하나: 해시 테이블의 저장 공간 이외의 공간을 활용하는 기법
 
 
+### Linear Probing 기법
 
-<br/>
+- 충돌 발생 시, hash address의 맨 처음 나오는 빈 공간에 저장하는 기법
+  - 해시 테이블의 저장 공간 활용도를 높이기 위함
+- **폐쇄 해싱**, **Closing Hashing** 기법 중 하나: 해시 테이블 저장 공간 내부에서 충돌을 해결하는 기법
 
-## Reference
+## 자바의 해시
+
+### 주요 함수
+
+코딩테스트 문제 풀 때는 주로 **put()**, **get()**, **getOrDefault()** 메서드를 가장 자주 사용하니 이 3개만은 반드시 외울 것
+
+| 함수명                            | 설명                         | 
+|--------------------------------|----------------------------|
+| **put(value)**                 | 데이터 삽입                     |
+| **get(key)**                   | 데이터 조회                     |
+| **getOrDefault(key, default)** | 데이터 조회, null일 때 default 반환 |
+| size()                         | 크기 조회                      |
+| isEmpty()                      | 빈 값인지 확인                   |
+| remove(key)                    | 데이터 삭제                     |
+| contains(value)                | value 값이 있는지 확인            |
+| containsKey(key)               | key 값이 있는지 확인              |
+
+
+## 참고
+
 - https://mangkyu.tistory.com/102
-- https://devlog-wjdrbs96.tistory.com/253
+- 패스트캠퍼스 코딩테스트 강의
