@@ -3,7 +3,7 @@ package codingtest;
 import java.util.*;
 import java.io.*;
 
-// https://www.acmicpc.net/problem/1012
+// 유기농 배추: https://www.acmicpc.net/problem/1012
 public class Baekjoon_1012 {
 
     int t, m, n, k;
@@ -49,6 +49,7 @@ public class Baekjoon_1012 {
                 }
                 result.add(count);
             }
+            br.close();
 
             for (int count : result) {
                 System.out.println(count);
