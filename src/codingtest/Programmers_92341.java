@@ -5,8 +5,8 @@ import java.util.*;
 // 주차 요금 계산: https://school.programmers.co.kr/learn/courses/30/lessons/92341
 public class Programmers_92341 {
     public static int[] solution(int[] fees, String[] records) {
-        Map<String, String> map = new HashMap<>();
-        Map<String, Integer> timeMap = new HashMap<>();
+        Map<String, String> map = new HashMap<>(); // 주차하고 있는 자동차 정보
+        Map<String, Integer> timeMap = new HashMap<>(); // 누적한 주차 시간 정보
 
         for (String record : records) {
             String[] split = record.split(" ");
@@ -36,6 +36,7 @@ public class Programmers_92341 {
         return answer;
     }
 
+    // 시간을 분으로 변환 후 그 값을 반환하는 함수
     private static int calculateTimeByMin(String startTime, String endTime) {
         int sum = 0;
 
@@ -57,6 +58,7 @@ public class Programmers_92341 {
         return sum;
     }
 
+    // 요금 계산
     private static int calculateFee(int[] fees, int usingTime) {
         if (usingTime <= fees[0]) {
             return fees[1];
