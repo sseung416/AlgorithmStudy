@@ -20,3 +20,7 @@ Study: 해시 개념 정리
 
 - 클래스명은 [ **사이트_문제번호** ]로 설정
 - Programming Language: JAVA
+
+</br>
+
+[![Solved.ac profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=seungyeon123)](https://solved.ac/seungyeon123)
