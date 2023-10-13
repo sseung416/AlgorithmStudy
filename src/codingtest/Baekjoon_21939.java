@@ -45,7 +45,7 @@ public class Baekjoon_21939 {
                 map.put(problem.number, problem);
                 problems.add(problem);
             } else {
-                // 해당 문제 번호에 부합하는 무제 삭제
+                // 해당 문제 번호에 부합하는 문제 삭제
                 int problem = Integer.parseInt(st.nextToken());
                 problems.remove(map.get(problem));
             }
