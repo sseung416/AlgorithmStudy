@@ -25,7 +25,6 @@ public class Baekjoon_11660 {
             for (int j = 0; j < n; j++) {
                 sum[i + 1][j + 1] = arr[i][j] + sum[i][j + 1] + sum[i + 1][j] - sum[i][j];
             }
-            System.out.println(Arrays.toString(sum[i+1]));
         }
 
         StringBuilder sb = new StringBuilder();
@@ -36,7 +35,7 @@ public class Baekjoon_11660 {
             int y2 = Integer.parseInt(st.nextToken());
             int x2 = Integer.parseInt(st.nextToken());
 
-            sb.append(sum[y2][x2] - sum[y1-1][x2] - sum[y2][x1 - 1] + sum[y1 -1][x1-1]).append('\n');
+            sb.append(sum[y2][x2] - sum[y1 - 1][x2] - sum[y2][x1 - 1] + sum[y1 - 1][x1 - 1]).append('\n');
         }
         br.close();
         System.out.print(sb);
