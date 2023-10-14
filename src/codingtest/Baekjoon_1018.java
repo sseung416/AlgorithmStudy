@@ -3,7 +3,8 @@ package codingtest;
 import java.io.*;
 import java.util.*;
 
-// 체스판 다시 기칠하기: https://www.acmicpc.net/problem/1018
+// 체스판 다시 칠하기: https://www.acmicpc.net/problem/1018
+// 완전탐기
 public class Baekjoon_1018 {
     public static void main(String[] args) {
         try {
