@@ -1,9 +1,10 @@
 package codingtest;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/72410
-public class Sseung_Programmers_72410 {
+// 신규 아이디 추천: https://school.programmers.co.kr/learn/courses/30/lessons/72410
+// 구현, 문자열
+public class Programmers_72410 {
     public static void run() {
-        Sseung_Programmers_72410 problem = new Sseung_Programmers_72410();
+        Programmers_72410 problem = new Programmers_72410();
         String answer1 = problem.solution("...!@BaT#*..y.abcdefghijklm");
         String answer2 = problem.solution("z-+.^.");
         String answer3 = problem.solution("=.=");

@@ -2,10 +2,11 @@ package codingtest;
 
 import java.util.HashMap;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/118666
-public class Sseung_Programmers_11866 {
+// 성격 유형 검사하기: https://school.programmers.co.kr/learn/courses/30/lessons/118666
+// 구현
+public class Programmers_11866 {
     public static void run() {
-        Sseung_Programmers_11866 problem = new Sseung_Programmers_11866();
+        Programmers_11866 problem = new Programmers_11866();
         String answer1 = problem.solution(new String[] { "AN", "CF", "MJ", "RT", "NA" }, new int[] { 5, 3, 2, 7, 5 });
         String answer2 = problem.solution(new String[] { "TR", "RT", "TR" }, new int[] { 7, 1, 3 });
         System.out.println(answer1);

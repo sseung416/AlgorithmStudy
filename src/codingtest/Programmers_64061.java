@@ -5,11 +5,12 @@ import java.util.EmptyStackException;
 import java.util.List;
 import java.util.Stack;
 
-// https://school.programmers.co.kr/learn/courses/30/lessons/64061
-public class Sseung_Programmers_64061 {
+// 크레인 인형 뽑기: https://school.programmers.co.kr/learn/courses/30/lessons/64061
+// 구현, 자료구조
+public class Programmers_64061 {
 
     public static void run() {
-        Sseung_Programmers_64061 problem = new Sseung_Programmers_64061();
+        Programmers_64061 problem = new Programmers_64061();
         int answer = problem.solution(
                 new int[][] { {0,0,0,0,0}, {0,0,1,0,3}, {0,2,5,0,1}, {4,2,4,4,2}, {3,5,1,3,1} },
                 new int[] { 1,5,3,5,1,2,1,4 }
